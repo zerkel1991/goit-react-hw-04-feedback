@@ -1,15 +1,15 @@
-import React from 'react';
+import s from './Section.module.css'
 import PropTypes from 'prop-types';
-import s from './Section.module.css';
 
-const Section = ({ title, children }) => (
-  <div className={s.section}>
-    {title && <h2 className={s.title}>{title}</h2>}
-    {children}
-  </div>
-);
+export default function Section ({title,children}) {
+return(
+  <section className={s.section}>
+  <h2 className={s.title}>{title}</h2>
+  {children}
+  </section>
 
-export default Section;
+)
+}
 
 Section.propTypes = {
   title: PropTypes.string,

@@ -1,30 +1,21 @@
-import React from 'react';
+import s from './FeedbackOptions.module.css'
 import PropTypes from 'prop-types';
-import s from './FeedbackOptions.module.css';
+import { nanoid } from 'nanoid'
+export default function FeedbackOptions({options,onLeaveFeedback}) {
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  return (
-    <ul className={s.btnList}>
-      {options.map((name, index) => {
-        return (
-          <li className={s.btnItem} key={index}>
-            <button
-              className={s.btn}
-              name={name}
-              type="button"
-              onClick={onLeaveFeedback}
-            >
-              {name}
-            </button>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
+return (
 
-export default FeedbackOptions;
+<ul className={s.btnList}>
+{options.map ((el)=>{
+  return  <li key={nanoid()} className={s.btnList__item}><button className ={s.btn} type = "button"  name={el}onClick={onLeaveFeedback}>{el}</button></li>
+})
 
+}
+
+</ul>
+
+)
+}
 FeedbackOptions.defaultProps = {
   options: [],
 };
@@ -32,4 +23,5 @@ FeedbackOptions.defaultProps = {
 FeedbackOptions.propTypes = {
   options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
-};
+}
+
